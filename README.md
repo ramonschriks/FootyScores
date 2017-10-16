@@ -1,11 +1,11 @@
-## Voorstel App 3 - FootyScore
+## Voorstel App 3 - FootyScores
 
 Schermontwerpen: https://drive.google.com/file/d/0B1P9A65saikIWnhCc1FQZXdZZnc/view?usp=sharing
 
 Voor deze applicatie is hierbij het volgende voorstel;
 Er wordt een App worden ontwikkeld waarmee live, geplande en gespeeld voetbalwedstrijden getoond worden, in de vorm van scores.
 
-**MUST**
+**MUST:**
 
 De volgende functionaliteiten worden onderdeel van de applicatie:
 - Het betreft een side-menu applicatie
@@ -17,14 +17,14 @@ De volgende functionaliteiten worden onderdeel van de applicatie:
     - geabboneerde wedstrijden (onderdeel van **should**)
   
   
-**SHOULD**  
+**SHOULD:**  
 
 - Een gebruiker kan per, nog niet gespeelde wedstrijd, aangeven om te abbonneren op een wedstrijd
     - Hierbij wordt er gebruik gemaakt van applicatie storage om de geabboneerde matches in op te slaan
 - Zodra geabbonneerd op een match, push notificatie versturen op device bij: Doelpunt, rode kaart, penalty toegekent, penalty gemist, aftrap, rust, aftrap 2e helft, einde match.
 
 
-**COULD**
+**COULD:**
 
 - Bij een match, kan je een foto maken die dan wordt gedeeld bij de match. Andere mensen met de app zouden die foto dan kunnen zien. We gaan de daadwerkelijkeservice, die ervoor zorgt dat de foto bij andere app gebruikers zichtbaar is niet implementeren, maar het opslaan van de foto bij een match wel. Dus andere mensen zullen die afbeelding nooit zien, maar puur het gebruik van de camera is wel leuk hier. Het idee hierachter is dat mensen over de hele wereld, die aanwezig zijn bij die match in het stadion, sfeerimpressies kunnen delen.
 
