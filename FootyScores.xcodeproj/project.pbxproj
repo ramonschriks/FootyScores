@@ -9,11 +9,12 @@
 /* Begin PBXBuildFile section */
 		24E525C5E3031ACD72A7CC25 /* Pods_FootyScores.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F22B09148202B780B08F9F4 /* Pods_FootyScores.framework */; };
 		5B14C8FC1F9414E0002E16D6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B14C8FB1F9414E0002E16D6 /* AppDelegate.swift */; };
-		5B14C8FE1F9414E0002E16D6 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B14C8FD1F9414E0002E16D6 /* FirstViewController.swift */; };
+		5B14C8FE1F9414E0002E16D6 /* TodayEventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B14C8FD1F9414E0002E16D6 /* TodayEventsViewController.swift */; };
 		5B14C9001F9414E0002E16D6 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B14C8FF1F9414E0002E16D6 /* SecondViewController.swift */; };
 		5B14C9031F9414E0002E16D6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B14C9011F9414E0002E16D6 /* Main.storyboard */; };
 		5B14C9051F9414E0002E16D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B14C9041F9414E0002E16D6 /* Assets.xcassets */; };
 		5B14C9081F9414E0002E16D6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B14C9061F9414E0002E16D6 /* LaunchScreen.storyboard */; };
+		5B70322A1F9536DE0022147F /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7032291F9536DE0022147F /* EventTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,12 +22,13 @@
 		1F22B09148202B780B08F9F4 /* Pods_FootyScores.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FootyScores.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B14C8F81F9414E0002E16D6 /* FootyScores.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FootyScores.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B14C8FB1F9414E0002E16D6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		5B14C8FD1F9414E0002E16D6 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		5B14C8FD1F9414E0002E16D6 /* TodayEventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayEventsViewController.swift; sourceTree = "<group>"; };
 		5B14C8FF1F9414E0002E16D6 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		5B14C9021F9414E0002E16D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5B14C9041F9414E0002E16D6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5B14C9071F9414E0002E16D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5B14C9091F9414E0002E16D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5B7032291F9536DE0022147F /* EventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
 		D06FD86BA61B0C6B6CB33DB3 /* Pods-FootyScores.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FootyScores.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FootyScores/Pods-FootyScores.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -64,10 +66,11 @@
 			isa = PBXGroup;
 			children = (
 				5B14C90F1F94152C002E16D6 /* Supporting Files */,
-				5B14C8FD1F9414E0002E16D6 /* FirstViewController.swift */,
+				5B14C8FD1F9414E0002E16D6 /* TodayEventsViewController.swift */,
 				5B14C8FF1F9414E0002E16D6 /* SecondViewController.swift */,
 				5B14C9011F9414E0002E16D6 /* Main.storyboard */,
 				5B14C9091F9414E0002E16D6 /* Info.plist */,
+				5B7032291F9536DE0022147F /* EventTableViewCell.swift */,
 			);
 			path = FootyScores;
 			sourceTree = "<group>";
@@ -230,9 +233,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B70322A1F9536DE0022147F /* EventTableViewCell.swift in Sources */,
 				5B14C9001F9414E0002E16D6 /* SecondViewController.swift in Sources */,
 				5B14C8FC1F9414E0002E16D6 /* AppDelegate.swift in Sources */,
-				5B14C8FE1F9414E0002E16D6 /* FirstViewController.swift in Sources */,
+				5B14C8FE1F9414E0002E16D6 /* TodayEventsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
