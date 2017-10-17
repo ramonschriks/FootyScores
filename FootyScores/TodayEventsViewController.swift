@@ -11,6 +11,7 @@ import UIKit
 class TodayEventsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var eventsTable: UITableView!
+    private let eventService = EventService();
     
     override func viewDidAppear(_ animated: Bool) {
         eventsTable.estimatedRowHeight = eventsTable.rowHeight
@@ -19,6 +20,7 @@ class TodayEventsViewController: UIViewController, UITableViewDelegate, UITableV
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.eventService.getTodaysEvents()
         self.eventsTable.dataSource = self
         // Do any additional setup after loading the view, typically from a nib.
     }

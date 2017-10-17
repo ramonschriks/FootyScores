@@ -14,6 +14,9 @@
 		5B14C9031F9414E0002E16D6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B14C9011F9414E0002E16D6 /* Main.storyboard */; };
 		5B14C9051F9414E0002E16D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B14C9041F9414E0002E16D6 /* Assets.xcassets */; };
 		5B14C9081F9414E0002E16D6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B14C9061F9414E0002E16D6 /* LaunchScreen.storyboard */; };
+		5B6D71011F9687ED00445813 /* ApiFootballClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6D71001F9687EC00445813 /* ApiFootballClient.swift */; };
+		5B6D71041F968C9400445813 /* EventService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6D71031F968C9400445813 /* EventService.swift */; };
+		5B6D71071F968F5B00445813 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6D71061F968F5B00445813 /* Event.swift */; };
 		5B70322A1F9536DE0022147F /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7032291F9536DE0022147F /* EventTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -28,6 +31,9 @@
 		5B14C9041F9414E0002E16D6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5B14C9071F9414E0002E16D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5B14C9091F9414E0002E16D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5B6D71001F9687EC00445813 /* ApiFootballClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiFootballClient.swift; sourceTree = "<group>"; };
+		5B6D71031F968C9400445813 /* EventService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventService.swift; sourceTree = "<group>"; };
+		5B6D71061F968F5B00445813 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		5B7032291F9536DE0022147F /* EventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
 		D06FD86BA61B0C6B6CB33DB3 /* Pods-FootyScores.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FootyScores.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FootyScores/Pods-FootyScores.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -65,6 +71,8 @@
 		5B14C8FA1F9414E0002E16D6 /* FootyScores */ = {
 			isa = PBXGroup;
 			children = (
+				5B6D71051F968C9800445813 /* Services */,
+				5B6D71021F96884300445813 /* Clients */,
 				5B14C90F1F94152C002E16D6 /* Supporting Files */,
 				5B14C8FD1F9414E0002E16D6 /* TodayEventsViewController.swift */,
 				5B14C8FF1F9414E0002E16D6 /* SecondViewController.swift */,
@@ -83,6 +91,23 @@
 				5B14C9061F9414E0002E16D6 /* LaunchScreen.storyboard */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5B6D71021F96884300445813 /* Clients */ = {
+			isa = PBXGroup;
+			children = (
+				5B6D71001F9687EC00445813 /* ApiFootballClient.swift */,
+				5B6D71061F968F5B00445813 /* Event.swift */,
+			);
+			path = Clients;
+			sourceTree = "<group>";
+		};
+		5B6D71051F968C9800445813 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				5B6D71031F968C9400445813 /* EventService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		6F564EAD6ABE13FB16017DFA /* Pods */ = {
@@ -233,9 +258,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B6D71041F968C9400445813 /* EventService.swift in Sources */,
 				5B70322A1F9536DE0022147F /* EventTableViewCell.swift in Sources */,
 				5B14C9001F9414E0002E16D6 /* SecondViewController.swift in Sources */,
+				5B6D71011F9687ED00445813 /* ApiFootballClient.swift in Sources */,
 				5B14C8FC1F9414E0002E16D6 /* AppDelegate.swift in Sources */,
+				5B6D71071F968F5B00445813 /* Event.swift in Sources */,
 				5B14C8FE1F9414E0002E16D6 /* TodayEventsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

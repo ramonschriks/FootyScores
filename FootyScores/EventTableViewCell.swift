@@ -9,7 +9,6 @@
 import UIKit
 
 class EventTableViewCell: UITableViewCell {
-    
     @IBOutlet weak var homeScore: UILabel!
     @IBOutlet weak var awayScore: UILabel!
     @IBOutlet weak var timeElapsed: UILabel!
