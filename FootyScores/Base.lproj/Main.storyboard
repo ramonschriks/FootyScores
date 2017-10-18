@@ -36,7 +36,7 @@
                                                     <color key="tintColor" red="0.0" green="1" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                                 </progressView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="GXZ-L2-BWQ">
-                                                    <rect key="frame" x="58" y="7" width="104" height="54"/>
+                                                    <rect key="frame" x="68" y="7" width="104" height="54"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="FC Utrecht" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qKF-Ja-r00">
                                                             <rect key="frame" x="0.0" y="0.0" width="104" height="27.5"/>
@@ -69,35 +69,35 @@
                                                         </label>
                                                     </subviews>
                                                 </stackView>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7QT-7m-nzt">
-                                                    <rect key="frame" x="8" y="4" width="30" height="35"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="20:45" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o9g-aA-NgV">
+                                                    <rect key="frame" x="4" y="35" width="54.5" height="24"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                    <color key="textColor" red="0.57045853140000002" green="0.57047235969999999" blue="0.57046490910000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7QT-7m-nzt">
+                                                    <rect key="frame" x="0.0" y="0.0" width="30" height="20"/>
                                                     <state key="normal" title="☆">
                                                         <color key="titleColor" red="1" green="0.83234566450000003" blue="0.47320586440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
                                                 </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="46" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o9g-aA-NgV">
-                                                    <rect key="frame" x="8" y="35" width="30" height="24"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                    <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                             </subviews>
                                             <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
+                                                <constraint firstItem="o9g-aA-NgV" firstAttribute="leading" secondItem="Xc5-ch-odZ" secondAttribute="leading" constant="4" id="6tY-lL-O0j"/>
                                                 <constraint firstItem="oZJ-xk-3Pw" firstAttribute="top" secondItem="o9g-aA-NgV" secondAttribute="bottom" constant="3" id="6xp-rY-fr3"/>
                                                 <constraint firstItem="oZJ-xk-3Pw" firstAttribute="top" secondItem="GXZ-L2-BWQ" secondAttribute="bottom" constant="1" id="Br1-yI-Ko5"/>
-                                                <constraint firstItem="GXZ-L2-BWQ" firstAttribute="leading" secondItem="7QT-7m-nzt" secondAttribute="trailing" constant="20" id="CuX-Zg-bOZ"/>
-                                                <constraint firstItem="o9g-aA-NgV" firstAttribute="leading" secondItem="Xc5-ch-odZ" secondAttribute="leading" constant="8" id="IUo-mr-nn1"/>
-                                                <constraint firstItem="7QT-7m-nzt" firstAttribute="leading" secondItem="Xc5-ch-odZ" secondAttribute="leading" constant="8" id="Ixs-Nt-SZR"/>
-                                                <constraint firstItem="o9g-aA-NgV" firstAttribute="top" secondItem="7QT-7m-nzt" secondAttribute="bottom" constant="-4" id="QFl-5B-ZBx"/>
+                                                <constraint firstItem="o9g-aA-NgV" firstAttribute="top" secondItem="7QT-7m-nzt" secondAttribute="bottom" constant="15" id="IsT-2D-ZHC"/>
+                                                <constraint firstItem="GXZ-L2-BWQ" firstAttribute="leading" secondItem="o9g-aA-NgV" secondAttribute="trailing" constant="9.5" id="NSI-2w-fSo"/>
                                                 <constraint firstAttribute="trailing" secondItem="7A6-wK-JXW" secondAttribute="trailing" constant="8.5" id="TfR-v0-Mfp"/>
                                                 <constraint firstItem="7A6-wK-JXW" firstAttribute="top" secondItem="Xc5-ch-odZ" secondAttribute="top" constant="4" id="Y6C-k1-Fz9"/>
+                                                <constraint firstItem="7QT-7m-nzt" firstAttribute="leading" secondItem="Xc5-ch-odZ" secondAttribute="leading" id="cvI-mG-CQB"/>
                                                 <constraint firstItem="oZJ-xk-3Pw" firstAttribute="top" secondItem="7A6-wK-JXW" secondAttribute="bottom" constant="3" id="dgk-qR-31N"/>
                                                 <constraint firstAttribute="bottom" secondItem="oZJ-xk-3Pw" secondAttribute="bottom" constant="4.5" id="eeF-db-BeD"/>
                                                 <constraint firstItem="oZJ-xk-3Pw" firstAttribute="leading" secondItem="Xc5-ch-odZ" secondAttribute="leading" id="gpE-a7-qlj"/>
-                                                <constraint firstItem="7QT-7m-nzt" firstAttribute="top" secondItem="Xc5-ch-odZ" secondAttribute="top" constant="4" id="i5T-li-MHJ"/>
                                                 <constraint firstAttribute="trailing" secondItem="oZJ-xk-3Pw" secondAttribute="trailing" id="oES-b8-O7G"/>
                                                 <constraint firstItem="GXZ-L2-BWQ" firstAttribute="top" secondItem="Xc5-ch-odZ" secondAttribute="top" constant="7" id="sTn-lx-cxo"/>
+                                                <constraint firstItem="7QT-7m-nzt" firstAttribute="top" secondItem="Xc5-ch-odZ" secondAttribute="top" id="yOf-J6-8K7"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -129,7 +129,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1510" y="-322"/>
+            <point key="canvasLocation" x="1509.5999999999999" y="-322.48875562218893"/>
         </scene>
         <!--Upcoming-->
         <scene sceneID="wg7-f3-ORb">

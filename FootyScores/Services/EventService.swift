@@ -11,14 +11,16 @@ import Foundation
 class EventService {
     private let client = ApiFootballClient();
     
-    public func getTodaysEvents() {
+    public func getTodaysEvents(completionBlock: @escaping ([(key: String, value: [Event])]) -> Void) {
         let date = Date()
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy.MM.dd"
         let today = formatter.string(from: date)
         
         self.client.getEvents(fromDate: today, toDate: today) { [weak weakSelf = self] events in
-            var sortedEvents = weakSelf?.sortEventsOnCountry(events)
+            if let events = weakSelf?.sortEventsOnCountry(events) {
+                completionBlock(events)
+            }
         }
     }
     
@@ -29,16 +31,19 @@ class EventService {
     private func sortEventsOnCountry(_ events: [Event]) -> [(key: String, value: [Event])] {
         var countryEvents: [String: [Event]] = [:]
         for event in events {
-            if countryEvents[event.country_id] == nil {
-                countryEvents[event.country_id] = []
+            if event.country_id != nil && event.league_id != nil {
+                let countryLeagueId = "\(event.country_id!) :: \(event.league_id!)"
+                if countryEvents[countryLeagueId] == nil {
+                    countryEvents[countryLeagueId] = []
+                }
+                countryEvents[countryLeagueId]?.append(event)
             }
-            countryEvents[event.country_id]?.append(event)
         }
         
         let sortedEvents = countryEvents.sorted { (first: (key: String, value: [Event]), second: (key: String, value: [Event])) -> Bool in
             return first.key < second.key
         }
-   
+        
         return sortedEvents
     }
 }
