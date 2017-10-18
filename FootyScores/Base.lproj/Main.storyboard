@@ -17,6 +17,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="nur-Wg-MLy">
+                                <rect key="frame" x="169" y="315" width="37" height="63.5"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="ciy-dO-1n7">
+                                        <rect key="frame" x="0.0" y="0.0" width="37" height="37"/>
+                                        <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </activityIndicatorView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Loading..." textAlignment="center" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sr9-Eu-8TG">
+                                        <rect key="frame" x="0.0" y="47" width="37" height="16.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="sr9-Eu-8TG" firstAttribute="top" secondItem="ciy-dO-1n7" secondAttribute="bottom" constant="5" id="ida-cZ-dLm"/>
+                                </constraints>
+                            </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" sectionIndexMinimumDisplayRowCount="-1" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="LfL-OM-ZAN">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" red="0.37055522200000002" green="0.37056469920000001" blue="0.37055957319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -116,14 +134,20 @@
                         <color key="backgroundColor" red="0.37055522200000002" green="0.37056469920000001" blue="0.37055957319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="LfL-OM-ZAN" firstAttribute="top" secondItem="PQr-Ze-W5v" secondAttribute="top" id="MUP-jp-a8Q"/>
+                            <constraint firstItem="nur-Wg-MLy" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" constant="169" id="Rqw-5x-eNJ"/>
+                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="bottom" secondItem="nur-Wg-MLy" secondAttribute="bottom" constant="239.5" id="Vq0-4s-bIE"/>
+                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="nur-Wg-MLy" secondAttribute="trailing" constant="169" id="fmv-sX-L46"/>
                             <constraint firstAttribute="trailing" secondItem="LfL-OM-ZAN" secondAttribute="trailing" id="iZ4-hJ-lO4"/>
                             <constraint firstItem="LfL-OM-ZAN" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" id="kfX-td-2xg"/>
+                            <constraint firstItem="nur-Wg-MLy" firstAttribute="top" secondItem="PQr-Ze-W5v" secondAttribute="top" constant="251" id="tF8-CU-gUF"/>
                             <constraint firstItem="LfL-OM-ZAN" firstAttribute="bottom" secondItem="PQr-Ze-W5v" secondAttribute="bottom" id="vAw-YR-fKA"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
                     </view>
                     <navigationItem key="navigationItem" title="Today's events" id="a7T-s4-hsO"/>
                     <connections>
+                        <outlet property="activity" destination="ciy-dO-1n7" id="d6e-3M-9XQ"/>
+                        <outlet property="activityLabel" destination="sr9-Eu-8TG" id="sij-9i-BBK"/>
                         <outlet property="eventsTable" destination="LfL-OM-ZAN" id="ehl-U5-MKF"/>
                     </connections>
                 </viewController>

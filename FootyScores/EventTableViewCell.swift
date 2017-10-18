@@ -23,14 +23,36 @@ class EventTableViewCell: UITableViewCell {
     
     private func loadData() {
         if event != nil {
+    
             self.homeScore.text = event?.match_hometeam_score
             self.awayScore.text = event?.match_awayteam_score
             self.timeElapsed.text = event?.match_time
             self.homeTeam.text = event?.match_hometeam_name
             self.awayTeam.text = event?.match_awayteam_name
-            
-            let fullTime = 90
-            //self.fullTimeProgress.progress = (fullTime / 100) *
+            self.fullTimeProgress.progress = 1
+
+            if let status = event?.match_status {
+                switch status {
+                case "FT":
+                    self.fullTimeProgress.isHidden = true
+                    self.timeElapsed.text = status
+                case "HT":
+                    self.fullTimeProgress.isHidden = false
+                    self.timeElapsed.text = status
+                default:
+                    let disabled = (event?.match_hometeam_score == "?" || event?.match_awayteam_score == "?")
+                    if disabled {
+                        self.fullTimeProgress.isHidden = disabled
+                        break
+                    }
+                    
+                    if let isLive = event?.match_live {
+                        self.fullTimeProgress.isHidden = isLive == "1" ? false : true
+                    } else {
+                        self.fullTimeProgress.isHidden = true
+                    }
+                }
+            }
         }
     }
 }
