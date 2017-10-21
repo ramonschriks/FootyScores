@@ -11,6 +11,7 @@ import CoreData
 
 class EventsTableViewDataSource: UIViewController, UITableViewDelegate, UITableViewDataSource {
     internal var events: [(key: String, value: [Event])]?
+    
     let eventService = EventService();
     let managedObjectContext: NSManagedObjectContext? =
         (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -38,7 +39,6 @@ class EventsTableViewDataSource: UIViewController, UITableViewDelegate, UITableV
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "eventCell", for: indexPath)
-        
         if let league = self.events?[indexPath.section] {
             let event = league.value[indexPath.row]
             if let eventCell = cell as? EventTableViewCell {

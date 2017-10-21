@@ -30,10 +30,13 @@ class ApiFootballClient {
     }
         
     private func requestJSON(_ jsonURL: String, completionBlock: @escaping ([Event]) -> Void) {
+        URLCache.shared.removeAllCachedResponses()
         Alamofire.request(jsonURL).responseJSON { response in
  
             var events: [Event] = []
             if let jsonData = response.result.value as? [Any] {
+                print(jsonData)
+                print(jsonURL)
                 for json in jsonData{
                     if let jsonArray = json as? [String: Any] {
                         
@@ -55,6 +58,7 @@ class ApiFootballClient {
                             event.match_status = jsonArray["match_status"]! as! String
                             event.match_time = jsonArray["match_time"]! as! String
                             events.append(event)
+
                         } catch {
                             // Just skip the event
                         }
@@ -65,4 +69,3 @@ class ApiFootballClient {
         }
     }
 }
-

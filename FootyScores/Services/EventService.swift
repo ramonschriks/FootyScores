@@ -61,8 +61,11 @@ class EventService {
         var liveEvents: [Event] = []
         for (_,leagueEvents) in events {
             for leagueEvent in leagueEvents {
-                if (leagueEvent.match_live != nil && leagueEvent.match_live == "1") {
-                    liveEvents.append(leagueEvent)
+                if (leagueEvent.match_live == "1" && leagueEvent.match_status != ""){
+                    let matchStatusTime = leagueEvent.match_status.dropLast() // Drop the ' after the 34' to cast to a legit number
+                    if let _ = Int(matchStatusTime){
+                       liveEvents.append(leagueEvent)
+                    }
                 }
             }
         }

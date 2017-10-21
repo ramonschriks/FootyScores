@@ -33,10 +33,10 @@ class EventTableViewCell: UITableViewCell {
     
             self.homeScore.text = event?.match_hometeam_score
             self.awayScore.text = event?.match_awayteam_score
-            self.timeElapsed.text = event?.match_time
             self.homeTeam.text = event?.match_hometeam_name
             self.awayTeam.text = event?.match_awayteam_name
             self.fullTimeProgress.progress = 1
+            self.timeElapsed.text = event?.match_status != "" ? event?.match_status : event?.match_time
 
             if let status = event?.match_status {
                 switch status {

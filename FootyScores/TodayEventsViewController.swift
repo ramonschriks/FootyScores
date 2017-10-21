@@ -20,7 +20,9 @@ class TodayEventsViewController: EventsTableViewDataSource {
     override internal var events: [(key: String, value: [Event])]? {
         didSet { self.eventsTable.reloadData() }
     }
-    private var unSelectedEvents: [(key: String, value: [Event])]?
+    private var liveEvents: [(key: String, value: [Event])]?
+    private var allEvents: [(key: String, value: [Event])]?
+
     
     override func viewWillAppear(_ animated: Bool) {
         self.loadEvents()
@@ -60,12 +62,7 @@ class TodayEventsViewController: EventsTableViewDataSource {
     }
     
     @objc func switchEvents(_ liveSwitch: UISwitch) {
-        if let events = self.events,
-           let unSelectedEvents = self.unSelectedEvents
-        {
-                self.events = unSelectedEvents
-                self.unSelectedEvents = events
-        }
+        self.events = liveSwitch.isOn ? self.liveEvents : self.allEvents
     }
     
     @objc private func loadEvents() {
@@ -74,13 +71,13 @@ class TodayEventsViewController: EventsTableViewDataSource {
         
         DispatchQueue.main.async {
             self.eventService.getTodaysEvents() { [weak weakSelf = self] events in
-                weakSelf?.events = events
-                
+                weakSelf?.allEvents = events
                 // Also load live events
                 self.eventService.filterLiveEvents(events) { liveEvents in
-                    weakSelf?.unSelectedEvents = liveEvents
+                    weakSelf?.liveEvents = liveEvents
                 }
                 
+                weakSelf?.events = weakSelf?.allEvents
                 weakSelf?.loading(enable: false)
             }
         }
