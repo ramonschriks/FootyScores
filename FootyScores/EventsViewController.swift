@@ -8,13 +8,11 @@
 
 import UIKit
 
-class TodayEventsViewController: EventsTableViewDataSource {
-
+class EventsViewController: EventsTableViewDataSource {
     @IBOutlet weak var activityLabel: UILabel!
     @IBOutlet weak var activity: UIActivityIndicatorView!
     @IBOutlet weak var eventsTable: UITableView!
     @IBOutlet weak var liveSwitch: UISwitch!
-    
     
     private let refreshControl = UIRefreshControl()
     override internal var events: [(key: String, value: [Event])]? {
@@ -22,8 +20,16 @@ class TodayEventsViewController: EventsTableViewDataSource {
     }
     private var liveEvents: [(key: String, value: [Event])]?
     private var allEvents: [(key: String, value: [Event])]?
-
     
+    private let maxNextOffset = 3
+    private let maxPrevOffset = -3
+    private var dateOffset: Int = 0 {
+        didSet {
+            self.loadEvents()
+            let dateString = (dateOffset == 0) ? "Todays" : DateUtil.getStringDateTo(days: dateOffset)
+            self.title = "\(dateString) events"
+        }} // Start with today (no offset)
+
     override func viewWillAppear(_ animated: Bool) {
         self.loadEvents()
         eventsTable.estimatedRowHeight = eventsTable.rowHeight
@@ -33,7 +39,7 @@ class TodayEventsViewController: EventsTableViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         liveSwitch.addTarget(self, action: #selector(self.switchEvents(_:)), for: UIControlEvents.valueChanged)
-
+        
         self.eventsTable.dataSource = self
         self.configureRefreshControl()
         self.loadEvents()
@@ -61,6 +67,18 @@ class TodayEventsViewController: EventsTableViewDataSource {
         }
     }
     
+    @IBAction func nextDay(_ sender: UIButton) {
+        if !(dateOffset + 1 > maxNextOffset)  {
+            dateOffset = dateOffset + 1
+        }
+    }
+    
+    @IBAction func prevDay(_ sender: UIButton) {
+        if !(dateOffset - 1 < maxPrevOffset) {
+            dateOffset = dateOffset - 1
+        }
+    }
+    
     @objc func switchEvents(_ liveSwitch: UISwitch) {
         self.events = liveSwitch.isOn ? self.liveEvents : self.allEvents
     }
@@ -70,7 +88,7 @@ class TodayEventsViewController: EventsTableViewDataSource {
         self.liveSwitch.setOn(false, animated: true)
         
         DispatchQueue.main.async {
-            self.eventService.getTodaysEvents() { [weak weakSelf = self] events in
+            self.eventService.getEvents(dateOffset: self.dateOffset) { [weak weakSelf = self] events in
                 weakSelf?.allEvents = events
                 // Also load live events
                 self.eventService.filterLiveEvents(events) { liveEvents in

@@ -11,24 +11,9 @@ import Foundation
 class EventService {
     private let client = ApiFootballClient();
     
-    private func getStringDateFrom(days from: Int)-> String {
-        let date = Date(timeInterval: TimeInterval(-(from*86400)), since: Date())
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy.MM.dd"
-        return formatter.string(from: date)
-    }
-    
-    private func getStringDateTo(days to: Int)-> String {
-        let date = Date(timeInterval: TimeInterval(to*86400), since: Date())
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy.MM.dd"
-        return formatter.string(from: date)
-    }
-    
-    
     public func getEvents(byIds ids: [String], completionBlock: @escaping ([(key: String, value: [Event])]) -> Void) {
-        let from = self.getStringDateFrom(days: 3)
-        let to = self.getStringDateTo(days: 3)
+        let from = DateUtil.getStringDateFrom(days: 3)
+        let to = DateUtil.getStringDateTo(days: 3)
   
         let multiRequestGroup = DispatchGroup()
         var favoriteEvents: [Event] = []
@@ -47,8 +32,8 @@ class EventService {
         }
     }
     
-    public func getTodaysEvents(completionBlock: @escaping ([(key: String, value: [Event])]) -> Void) {
-        let today = self.getStringDateTo(days: 0)
+    public func getEvents(dateOffset offset: Int, completionBlock: @escaping ([(key: String, value: [Event])]) -> Void) {
+        let today = DateUtil.getStringDateTo(days: offset)
         
         self.client.getEvents(fromDate: today, toDate: today) { [weak weakSelf = self] events in
             if let events = weakSelf?.sortEventsOnCountry(events) {

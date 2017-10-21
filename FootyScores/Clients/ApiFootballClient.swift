@@ -35,8 +35,6 @@ class ApiFootballClient {
  
             var events: [Event] = []
             if let jsonData = response.result.value as? [Any] {
-                print(jsonData)
-                print(jsonURL)
                 for json in jsonData{
                     if let jsonArray = json as? [String: Any] {
                         

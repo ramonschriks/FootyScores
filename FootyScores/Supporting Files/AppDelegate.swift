@@ -14,11 +14,8 @@ import UserNotifications
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-   // let notificationDelegate = NotificationService()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-       // let center = UNUserNotificationCenter.current()
-       // center.delegate = notificationDelegate
 
         return true
     }
