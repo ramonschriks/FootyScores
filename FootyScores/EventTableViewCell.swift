@@ -15,7 +15,14 @@ class EventTableViewCell: UITableViewCell {
     @IBOutlet weak var homeTeam: UILabel!
     @IBOutlet weak var awayTeam: UILabel!
     @IBOutlet weak var fullTimeProgress: UIProgressView!
-    @IBOutlet weak var favoriteButton: UIButton!
+    
+    typealias subscribeClickedBlock = (_ button:UIButton) -> Void
+    var subscribeClicked: subscribeClickedBlock!
+    @IBAction func subscribe(_ sender: UIButton) {
+        if subscribeClicked != nil {
+            subscribeClicked(sender)
+        }
+    }
     
     var event: Event? {
         didSet { self.loadData() }

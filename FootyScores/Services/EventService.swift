@@ -11,17 +11,62 @@ import Foundation
 class EventService {
     private let client = ApiFootballClient();
     
-    public func getTodaysEvents(completionBlock: @escaping ([(key: String, value: [Event])]) -> Void) {
-        let date = Date()
+    private func getStringDateFrom(days from: Int)-> String {
+        let date = Date(timeInterval: TimeInterval(-(from*86400)), since: Date())
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy.MM.dd"
-        let today = formatter.string(from: date)
+        return formatter.string(from: date)
+    }
+    
+    private func getStringDateTo(days to: Int)-> String {
+        let date = Date(timeInterval: TimeInterval(to*86400), since: Date())
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy.MM.dd"
+        return formatter.string(from: date)
+    }
+    
+    
+    public func getEvents(byIds ids: [String], completionBlock: @escaping ([(key: String, value: [Event])]) -> Void) {
+        let from = self.getStringDateFrom(days: 3)
+        let to = self.getStringDateTo(days: 3)
+  
+        let multiRequestGroup = DispatchGroup()
+        var favoriteEvents: [Event] = []
+        
+        for id in ids {
+            multiRequestGroup.enter()
+            self.client.getEvents(fromId: id, fromDate: from, toDate: to) { events in
+                for event in events {
+                    favoriteEvents.append(event)
+                    multiRequestGroup.leave()
+                }
+            }
+        }
+        multiRequestGroup.notify(queue: .main) {
+            completionBlock(self.sortEventsOnCountry(favoriteEvents))
+        }
+    }
+    
+    public func getTodaysEvents(completionBlock: @escaping ([(key: String, value: [Event])]) -> Void) {
+        let today = self.getStringDateTo(days: 0)
         
         self.client.getEvents(fromDate: today, toDate: today) { [weak weakSelf = self] events in
             if let events = weakSelf?.sortEventsOnCountry(events) {
                 completionBlock(events)
             }
         }
+    }
+    
+    public func filterLiveEvents(_ events: [(key: String, value: [Event])], completionBlock: @escaping ([(key: String, value: [Event])]) -> Void) {
+        var liveEvents: [Event] = []
+        for (_,leagueEvents) in events {
+            for leagueEvent in leagueEvents {
+                if (leagueEvent.match_live != nil && leagueEvent.match_live == "1") {
+                    liveEvents.append(leagueEvent)
+                }
+            }
+        }
+        completionBlock(self.sortEventsOnCountry(liveEvents))
     }
     
     /**

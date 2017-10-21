@@ -16,10 +16,16 @@ class ApiFootballClient {
     public func getEvents(fromDate from: String, toDate to: String, completionBlock: @escaping ([Event]) -> Void) {
         let url = "https://apifootball.com/api/?action=get_events&from=\(from)&to=\(to)&APIkey=\(self.apiKey)"
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            self.requestJSON(url) { Events in
-                completionBlock(Events)
-            }
+        self.requestJSON(url) { events in
+            completionBlock(events)
+        }
+    }
+    
+    public func getEvents(fromId id: String, fromDate from: String, toDate to: String, completionBlock: @escaping ([Event]) -> Void) {
+        let url = "https://apifootball.com/api/?action=get_events&from=\(from)&to=\(to)&match_id=\(id)&APIkey=\(self.apiKey)"
+
+        self.requestJSON(url) { events in
+            completionBlock(events)
         }
     }
         
@@ -28,7 +34,6 @@ class ApiFootballClient {
  
             var events: [Event] = []
             if let jsonData = response.result.value as? [Any] {
-                print(jsonData)
                 for json in jsonData{
                     if let jsonArray = json as? [String: Any] {
                         

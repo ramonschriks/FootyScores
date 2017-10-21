@@ -1,5 +1,5 @@
 //
-//  FirstViewController.swift
+//  SecondViewController.swift
 //  FootyScores
 //
 //  Created by Ramon Schriks on 16-10-17.
@@ -7,34 +7,29 @@
 //
 
 import UIKit
+import CoreData
 
-class TodayEventsViewController: EventsTableViewDataSource {
-
+class FavoritesViewController: EventsTableViewDataSource {
     @IBOutlet weak var activityLabel: UILabel!
     @IBOutlet weak var activity: UIActivityIndicatorView!
     @IBOutlet weak var eventsTable: UITableView!
-    @IBOutlet weak var liveSwitch: UISwitch!
-    
     
     private let refreshControl = UIRefreshControl()
     override internal var events: [(key: String, value: [Event])]? {
         didSet { self.eventsTable.reloadData() }
     }
-    private var unSelectedEvents: [(key: String, value: [Event])]?
     
     override func viewWillAppear(_ animated: Bool) {
-        self.loadEvents()
+        self.loadFavorites()
         eventsTable.estimatedRowHeight = eventsTable.rowHeight
         eventsTable.rowHeight = UITableViewAutomaticDimension
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        liveSwitch.addTarget(self, action: #selector(self.switchEvents(_:)), for: UIControlEvents.valueChanged)
-
         self.eventsTable.dataSource = self
         self.configureRefreshControl()
-        self.loadEvents()
+        self.loadFavorites()
     }
     
     private func configureRefreshControl() {
@@ -43,7 +38,7 @@ class TodayEventsViewController: EventsTableViewDataSource {
         } else {
             self.eventsTable.addSubview(refreshControl)
         }
-        self.refreshControl.addTarget(self, action: #selector(loadEvents), for: .valueChanged)
+        self.refreshControl.addTarget(self, action: #selector(loadFavorites), for: .valueChanged)
     }
     
     private func loading(enable: Bool) {
@@ -59,29 +54,22 @@ class TodayEventsViewController: EventsTableViewDataSource {
         }
     }
     
-    @objc func switchEvents(_ liveSwitch: UISwitch) {
-        if let events = self.events,
-           let unSelectedEvents = self.unSelectedEvents
-        {
-                self.events = unSelectedEvents
-                self.unSelectedEvents = events
-        }
-    }
-    
-    @objc private func loadEvents() {
+    @objc private func loadFavorites() {
         self.loading(enable: true)
-        self.liveSwitch.setOn(false, animated: true)
         
-        DispatchQueue.main.async {
-            self.eventService.getTodaysEvents() { [weak weakSelf = self] events in
-                weakSelf?.events = events
-                
-                // Also load live events
-                self.eventService.filterLiveEvents(events) { liveEvents in
-                    weakSelf?.unSelectedEvents = liveEvents
+        managedObjectContext?.perform {
+            if let favorites = Favorite.getFavorites(inManagedObjectContext: self.managedObjectContext!) {
+                var favoriteIds: [String] = []
+                for favorite in favorites {
+                    favoriteIds.append(favorite.match_id!)
                 }
                 
-                weakSelf?.loading(enable: false)
+                DispatchQueue.main.async {
+                    self.eventService.getEvents(byIds: favoriteIds) { [weak weakSelf = self] events in
+                        weakSelf?.events = events
+                        self.loading(enable: false)
+                    }
+                }
             }
         }
     }
