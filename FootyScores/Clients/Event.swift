@@ -9,8 +9,8 @@
 import Foundation
 
 class Event {
-    var cards: [Any]!
-    var goalscorer: [Any]!
+    var cards: [Card]!
+    var goalscorers: [Goal]!
 
     var country_id: String!
     var country_name: String!

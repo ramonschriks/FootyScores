@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		24E525C5E3031ACD72A7CC25 /* Pods_FootyScores.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F22B09148202B780B08F9F4 /* Pods_FootyScores.framework */; };
+		5B05E64A1F9D56E300E62B75 /* EventDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B05E6491F9D56E300E62B75 /* EventDetailTableViewCell.swift */; };
+		5B067DDD1F9D3F5C00AA3EBB /* EventsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B067DDC1F9D3F5C00AA3EBB /* EventsDetailViewController.swift */; };
 		5B14C8FC1F9414E0002E16D6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B14C8FB1F9414E0002E16D6 /* AppDelegate.swift */; };
 		5B14C8FE1F9414E0002E16D6 /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B14C8FD1F9414E0002E16D6 /* EventsViewController.swift */; };
 		5B14C9001F9414E0002E16D6 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B14C8FF1F9414E0002E16D6 /* FavoritesViewController.swift */; };
@@ -21,13 +23,18 @@
 		5B6D71041F968C9400445813 /* EventService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6D71031F968C9400445813 /* EventService.swift */; };
 		5B6D71071F968F5B00445813 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6D71061F968F5B00445813 /* Event.swift */; };
 		5B70322A1F9536DE0022147F /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7032291F9536DE0022147F /* EventTableViewCell.swift */; };
+		5BAE47A21F9D4E9800DEA537 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BAE47A11F9D4E9800DEA537 /* Card.swift */; };
+		5BAE47A41F9D4F1B00DEA537 /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BAE47A31F9D4F1B00DEA537 /* Goal.swift */; };
 		5BBD4F881F9ABC48001245EC /* EventsTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBD4F871F9ABC48001245EC /* EventsTableViewDataSource.swift */; };
 		5BBD4F8E1F9AC2B8001245EC /* FootyScores.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5BBD4F8C1F9AC2B8001245EC /* FootyScores.xcdatamodeld */; };
+		5BEB970A1F9D5B2D0012C979 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEB97091F9D5B2D0012C979 /* Activity.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0D9740DD79346CF2ED6BB1A3 /* Pods-FootyScores.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FootyScores.release.xcconfig"; path = "Pods/Target Support Files/Pods-FootyScores/Pods-FootyScores.release.xcconfig"; sourceTree = "<group>"; };
 		1F22B09148202B780B08F9F4 /* Pods_FootyScores.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FootyScores.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B05E6491F9D56E300E62B75 /* EventDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailTableViewCell.swift; sourceTree = "<group>"; };
+		5B067DDC1F9D3F5C00AA3EBB /* EventsDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsDetailViewController.swift; sourceTree = "<group>"; };
 		5B14C8F81F9414E0002E16D6 /* FootyScores.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FootyScores.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B14C8FB1F9414E0002E16D6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5B14C8FD1F9414E0002E16D6 /* EventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
@@ -44,8 +51,11 @@
 		5B6D71061F968F5B00445813 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		5B7032291F9536DE0022147F /* EventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
 		5B96B94B1F9B85070035E72E /* SwipeCellKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwipeCellKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5BAE47A11F9D4E9800DEA537 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		5BAE47A31F9D4F1B00DEA537 /* Goal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goal.swift; sourceTree = "<group>"; };
 		5BBD4F871F9ABC48001245EC /* EventsTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsTableViewDataSource.swift; sourceTree = "<group>"; };
 		5BBD4F8D1F9AC2B8001245EC /* FootyScores.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FootyScores.xcdatamodel; sourceTree = "<group>"; };
+		5BEB97091F9D5B2D0012C979 /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		D06FD86BA61B0C6B6CB33DB3 /* Pods-FootyScores.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FootyScores.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FootyScores/Pods-FootyScores.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -85,16 +95,15 @@
 			isa = PBXGroup;
 			children = (
 				5BBD4F8C1F9AC2B8001245EC /* FootyScores.xcdatamodeld */,
+				5B14C90F1F94152C002E16D6 /* Supporting Files */,
 				5B6D71051F968C9800445813 /* Services */,
 				5B6D71021F96884300445813 /* Clients */,
 				5B58F6F91F9C078100A027BB /* Utils */,
-				5B14C90F1F94152C002E16D6 /* Supporting Files */,
-				5B14C8FD1F9414E0002E16D6 /* EventsViewController.swift */,
-				5BBD4F871F9ABC48001245EC /* EventsTableViewDataSource.swift */,
-				5B14C8FF1F9414E0002E16D6 /* FavoritesViewController.swift */,
+				5BEB970C1F9D664A0012C979 /* Events */,
+				5BEB970B1F9D662C0012C979 /* EventsDetail */,
+				5BEB970D1F9D66510012C979 /* Favorites */,
 				5B14C9011F9414E0002E16D6 /* Main.storyboard */,
 				5B14C9091F9414E0002E16D6 /* Info.plist */,
-				5B7032291F9536DE0022147F /* EventTableViewCell.swift */,
 			);
 			path = FootyScores;
 			sourceTree = "<group>";
@@ -122,6 +131,9 @@
 			children = (
 				5B6D71001F9687EC00445813 /* ApiFootballClient.swift */,
 				5B6D71061F968F5B00445813 /* Event.swift */,
+				5BAE47A11F9D4E9800DEA537 /* Card.swift */,
+				5BEB97091F9D5B2D0012C979 /* Activity.swift */,
+				5BAE47A31F9D4F1B00DEA537 /* Goal.swift */,
 			);
 			path = Clients;
 			sourceTree = "<group>";
@@ -132,6 +144,33 @@
 				5B6D71031F968C9400445813 /* EventService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		5BEB970B1F9D662C0012C979 /* EventsDetail */ = {
+			isa = PBXGroup;
+			children = (
+				5B067DDC1F9D3F5C00AA3EBB /* EventsDetailViewController.swift */,
+				5B05E6491F9D56E300E62B75 /* EventDetailTableViewCell.swift */,
+			);
+			path = EventsDetail;
+			sourceTree = "<group>";
+		};
+		5BEB970C1F9D664A0012C979 /* Events */ = {
+			isa = PBXGroup;
+			children = (
+				5B14C8FD1F9414E0002E16D6 /* EventsViewController.swift */,
+				5BBD4F871F9ABC48001245EC /* EventsTableViewDataSource.swift */,
+				5B7032291F9536DE0022147F /* EventTableViewCell.swift */,
+			);
+			path = Events;
+			sourceTree = "<group>";
+		};
+		5BEB970D1F9D66510012C979 /* Favorites */ = {
+			isa = PBXGroup;
+			children = (
+				5B14C8FF1F9414E0002E16D6 /* FavoritesViewController.swift */,
+			);
+			path = Favorites;
 			sourceTree = "<group>";
 		};
 		6F564EAD6ABE13FB16017DFA /* Pods */ = {
@@ -285,12 +324,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BEB970A1F9D5B2D0012C979 /* Activity.swift in Sources */,
 				5B6D71041F968C9400445813 /* EventService.swift in Sources */,
 				5B58F6F81F9C077B00A027BB /* DateUtil.swift in Sources */,
 				5B70322A1F9536DE0022147F /* EventTableViewCell.swift in Sources */,
+				5B05E64A1F9D56E300E62B75 /* EventDetailTableViewCell.swift in Sources */,
 				5B14C9001F9414E0002E16D6 /* FavoritesViewController.swift in Sources */,
 				5B6D71011F9687ED00445813 /* ApiFootballClient.swift in Sources */,
 				5B14C8FC1F9414E0002E16D6 /* AppDelegate.swift in Sources */,
+				5B067DDD1F9D3F5C00AA3EBB /* EventsDetailViewController.swift in Sources */,
+				5BAE47A21F9D4E9800DEA537 /* Card.swift in Sources */,
+				5BAE47A41F9D4F1B00DEA537 /* Goal.swift in Sources */,
 				5BBD4F881F9ABC48001245EC /* EventsTableViewDataSource.swift in Sources */,
 				5B6D71071F968F5B00445813 /* Event.swift in Sources */,
 				5B14C8FE1F9414E0002E16D6 /* EventsViewController.swift in Sources */,

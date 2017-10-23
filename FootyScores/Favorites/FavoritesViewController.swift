@@ -73,5 +73,13 @@ class FavoritesViewController: EventsTableViewDataSource {
             }
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let detailVC = segue.destination.contents as? EventsDetailViewController {
+            if let detailCell = sender as? EventTableViewCell {
+                detailVC.event = detailCell.event
+            }
+        }
+    }
 }
 

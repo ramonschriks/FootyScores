@@ -100,5 +100,22 @@ class EventsViewController: EventsTableViewDataSource {
             }
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let detailVC = segue.destination.contents as? EventsDetailViewController {
+            if let detailCell = sender as? EventTableViewCell {
+                detailVC.event = detailCell.event
+            }
+        }
+    }
+}
+
+extension UIViewController {
+    var contents: UIViewController {
+        if let navcon = self as? UINavigationController {
+            return navcon.visibleViewController ?? self
+        }
+        return self
+    }
 }
 

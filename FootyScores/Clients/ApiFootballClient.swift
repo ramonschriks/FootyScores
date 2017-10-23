@@ -37,7 +37,7 @@ class ApiFootballClient {
             if let jsonData = response.result.value as? [Any] {
                 for json in jsonData{
                     if let jsonArray = json as? [String: Any] {
-                        
+
                         do {
                             let event = Event()
                             event.country_id = jsonArray["country_id"]! as! String
@@ -55,8 +55,32 @@ class ApiFootballClient {
                             event.match_live = jsonArray["match_live"]! as! String
                             event.match_status = jsonArray["match_status"]! as! String
                             event.match_time = jsonArray["match_time"]! as! String
-                            events.append(event)
 
+                            event.goalscorers = []
+                            if let goals = jsonArray["goalscorer"] as? [[String: Any]] {
+                                for goal in goals {
+                                    let goalObj = Goal()
+                                    goalObj.away_scorer = goal["away_scorer"]! as? String
+                                    goalObj.home_scorer = goal["home_scorer"]! as? String
+                                    goalObj.score = goal["score"]! as? String
+                                    goalObj.time = goal["time"]! as? String
+                                    event.goalscorers.append(goalObj)
+                                }
+                            }
+                            
+                            event.cards = []
+                            if let cards = jsonArray["cards"] as? [[String: Any]] {
+                                for card in cards {
+                                    let cardObj = Card()
+                                    cardObj.away_fault = card["away_fault"]! as? String
+                                    cardObj.home_fault = card["home_fault"]! as? String
+                                    cardObj.card = card["card"]! as? String
+                                    cardObj.time = card["time"]! as? String
+                                    event.cards.append(cardObj)
+                                }
+                            }
+                            
+                            events.append(event)
                         } catch {
                             // Just skip the event
                         }
