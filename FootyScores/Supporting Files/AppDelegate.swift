@@ -8,15 +8,19 @@
 
 import UIKit
 import CoreData
-import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var backgroundTaskTimer: Timer?
+    var favoriteService: FavoriteService?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-
+        self.favoriteService = FavoriteService(
+            managedObjectContext: persistentContainer.viewContext
+        )
+        
         return true
     }
 

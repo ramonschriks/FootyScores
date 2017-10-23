@@ -54,7 +54,10 @@ class EventsTableViewDataSource: UIViewController, UITableViewDelegate, UITableV
     
     private func addFavorite(_ event: Event, _ button: UIButton) {
         managedObjectContext?.perform {
-            _ = Favorite.addFavorite(with: event.match_id, inManagedObjectContext: self.managedObjectContext!)
+            let added = Favorite.addFavorite(with: event, inManagedObjectContext: self.managedObjectContext!)
+            if !added {
+                _ = Favorite.deleteFavorite(with: event, inManagedObjectContext: self.managedObjectContext!)
+            }
             try? self.managedObjectContext?.save()
         }
     }
