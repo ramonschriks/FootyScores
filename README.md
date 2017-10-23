@@ -22,5 +22,5 @@ The current features of this application, as of the latest changes, are:
 For demo purposes, the background services are scheduled every 5 seconds (interval). Please see the ```NotificationService.swift``` for the correct initialize of this interval.
 
 ## Screenshots ##
-![Alt text](/Screenshots/favorites.jpeg?raw=true "Today's events")
+![Alt text](/Screenshots/todays events.jpeg?raw=true "Today's events")
 
