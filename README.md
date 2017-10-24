@@ -18,6 +18,22 @@ The current features of this application, as of the latest changes, are:
 - View scheduled events up to 3 days
 - View detailed match info for each event
 
+## Internal Structure ##
+- Usage off async queue's (main/global) for fluid user experience
+   - ie. for the favorites, we have a list of matchId's we want to retrieve. However, the API supports only 1 matchId per time. So we need to requests all events individually. While we do do this (```EventService:getEvents(byIds)```), we wait until all requests are finished, and then return the full list of events. In the controller which calls this method, we use async off the main queue to not wait for it.
+   
+- Correct usage of extending classes to reduce duplicate code used by multiple classes 
+(example: FootyScores/FootyScores/Events/EventsTableViewDataSource.swift
+   - is used as an abstract class
+   - for EventViewController.swift
+   - for FavoriteViewController.swift
+
+- Usage of external API's and parsing the JSON into domainObjects
+- Smart sorting abilities to sort all events in the leagues/countries they belong to (```EventService.swift```)
+- Timer for running specific methods in the background. We need this (for testing purposes) to check if there are changes in our favorite events. When there are changes, we send a pushnotification to the user.
+- Push Notification Service to send the notification with a 5 second delay.
+
+
 ## Note ##
 For demo purposes, the background services are scheduled every 5 seconds (interval). Please see the ```NotificationService.swift``` for the correct initialize of this interval.
 
