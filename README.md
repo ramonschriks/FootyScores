@@ -17,6 +17,7 @@ The current features of this application, as of the latest changes, are:
 - View Todays results/live events
 - View scheduled events up to 3 days
 - View detailed match info for each event
+- Optimized (UI) for iPads and iPhones
 
 ## Internal Structure ##
 - Usage off async queue's (main/global) for fluid user experience
@@ -36,14 +37,6 @@ The current features of this application, as of the latest changes, are:
 
 ## Note ##
 For demo purposes, the background services are scheduled every 5 seconds (interval). Please see the ```NotificationService.swift``` for the correct initialize of this interval.
-
-## Screenshots ##
-![Alt text](/Screenshots/today.jpeg?raw=true "Today")
-![Alt text](/Screenshots/scheduled.jpeg?raw=true "Scheduled")
-![Alt text](/Screenshots/results.jpeg?raw=true "Results")
-![Alt text](/Screenshots/favorites.jpeg?raw=true "Favorites")
-![Alt text](/Screenshots/details.jpeg?raw=true "Details")
-![Alt text](/Screenshots/notifications.jpeg?raw=true "Notifications")
 
 
 
